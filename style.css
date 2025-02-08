@@ -197,7 +197,7 @@ body {
   display: none;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 700px) {
   .computer-screen {
     display: none;
   }
@@ -205,7 +205,7 @@ body {
     display: block;
   }
 }
-@media (max-height: 500px) {
+@media (max-height: 700px) {
   .computer-screen {
     display: none;
   }
