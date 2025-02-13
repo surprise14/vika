@@ -177,7 +177,11 @@ body {
 .arrow {
   width: 20vw;
   transform: scaleY(0.6) rotate(90deg);
-  color: #115f0a;
+}
+
+.arrow-left {
+  width: 10vw;
+  transform: scaleX(0.6) rotate(180deg);
 }
 
 .button-text {
