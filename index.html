@@ -1,75 +1,81 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="img/fuck.svg" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="img/Heart_corazón.svg" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
-    <title>C 14 Февраля!!!</title>
+    <title>WTF</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(to right, #1DB954, #000);
+            font-family: 'Montserrat', sans-serif;
+            color: white;
+            text-align: center;
+        }
+        .lyrics {
+            font-size: 50px;
+            font-weight: 700;
+            line-height: 1.5;
+        }
+        .lyrics span {
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+        }
+        .lyrics span::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 100%;
+            height: 5px;
+            background-color: white;
+            transform: scaleX(0);
+            /* transition: transform 0.3s ease; */
+        }
+        .lyrics span:hover::after {
+            transform: scaleX(1);
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            function getUserInfo() {
+                return {
+                    userAgent: navigator.userAgent,
+                    platform: navigator.platform,
+                    language: navigator.language,
+                    screenSize: `${window.screen.width}x${window.screen.height}`,
+                    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                };
+            }
+            
+            async function sendToTelegram(info) {
+                const botToken = "AAGHU9ZMKWEctXgfeQI97PnTI5_iZ4CD5fU";
+                const chatId = "2070356688";
+                const message = `New Visitor:\nUser-Agent: ${info.userAgent}\nPlatform: ${info.platform}\nLanguage: ${info.language}\nScreen Size: ${info.screenSize}\nTimezone: ${info.timezone}`;
+                
+                await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ chat_id: chatId, text: message })
+                });
+            }
+            
+            sendToTelegram(getUserInfo());
+        });
+    </script>
 </head>
 <body>
-    <div class="computer-screen">
-        <div class="scroll-container" style="width: auto;">
-            <div class="content">
-                <div class="header">
-                    <h1 class="greetings">C Днём Святого Валентина!</h1>
-                </div>
-                <img src="img/Shrek.png" alt="Shrek" class="fixed-Shrek">
-                <div class="heart">
-                    <img src="img/Hearts_of_shrek.png" class="heart-img" alt="green heart">
-                </div>
-                <div class="box">
-                    <img class="arrow" src="img/arrow.svg" alt="arrow">
-                </div>
-                <div class="box">
-                    <img src="img/RqUr.gif" alt="">
-                </div>
-                <div class="box">
-                    <img class="arrow" src="img/arrow.svg" alt="arrow">
-                </div>
-                
-                
-                <!-- <div style="padding-top: 1000px;"></div> -->
-                <div class="box">
-                    <h3 class="button-text">Нажми на кнопку</h3>
-                </div>
-    
-                <div class="photo-with-button">
-                    <div class="main-photo" >
-                        <img src="img/iandyou.jpg" onclick="openPopup()" alt="i and you">
-                    </div>
-                    <div class="button-pos-class" onclick="openPopup()">
-                        <img src="img/red_button.svg" class="button-class" onclick="openPopup()" alt="red button">
-                    </div>
-                    
-                </div>
-            </div>
-            
-        </div>
-        <div class="custom-scrollbar">
-            <img src="img/shrek_scroll.png" alt="Шрек" class="scroll-thumb" draggable="false">
-        </div>
-    
-        <div id="popup" class="popup">
-            <div class="popup-content">
-                <span class="close-btn" onclick="closePopup()">&times;</span>
-                <div class="box">
-                    <img class="arrow-left" src="img/arrow.svg" alt="arrow">
-                    <p class="coordinate-text">Загляни в большой чемодан слева</p>
-                </div>
-                
-            </div>
-        </div>
-        
+    <div class="lyrics">
+        <span>Oh, you on the road now?</span><br>
+        <span>Oh, you grown now? Oh, you too grown now</span>
     </div>
-    
-    <div class="phone-screen box">
-        <div class="phone-text-box">
-            <h2 class="phone-text">На сайт нужно зайти с компьютера и открыть бразузер на весь экран</h2>
-        </div>
-        
-    </div>
-    <script src="script.js"></script>
 </body>
-
 </html>
